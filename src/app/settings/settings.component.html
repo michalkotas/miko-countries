@@ -4,9 +4,9 @@
     <form role="form" [formGroup]="settingsForm" (ngSubmit)="submit(settingsForm)" class="miko-form">
       <mat-card-content>
         <mat-form-field>
-          <input matInput formControlName="mashapeKey" placeholder="Mashape Key">
+          <input matInput formControlName="mashapeKey" placeholder="RapidAPI Key">
           <mat-error *ngIf="settingsForm.get('mashapeKey').hasError('required')">
-            Mashape Key is required
+            RapidAPI Key is required
           </mat-error>
         </mat-form-field>
       </mat-card-content>

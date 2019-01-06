@@ -1,6 +1,6 @@
 # MikoCountries
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.1.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.1 and upgraded to version 7
 
 ## Development server
 
