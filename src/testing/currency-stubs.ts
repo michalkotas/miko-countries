@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
+import {Observable, of} from 'rxjs';
 import {CurrencyConvertModel} from '../app/models/currency-convert.model';
 
 export const MOCK_CURRENCY: CurrencyConvertModel = new CurrencyConvertModel({
@@ -12,6 +12,6 @@ export const MOCK_CURRENCY: CurrencyConvertModel = new CurrencyConvertModel({
 @Injectable()
 export class CurrencyServiceStub {
   public getCurrencyRate(to: string, from: string = 'FAKE_FROM', from_amount: number = 1): Observable<CurrencyConvertModel> {
-    return Observable.of(MOCK_CURRENCY);
+    return of(MOCK_CURRENCY);
   }
 }

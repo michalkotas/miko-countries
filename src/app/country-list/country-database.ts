@@ -1,7 +1,6 @@
 import {CountryService} from '../services/country.service';
 import {CountryModel} from '../models/country.model';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
-import { Subscription } from 'rxjs/Subscription';
+import {BehaviorSubject,  Subscription } from 'rxjs';
 
 export class CountryDatabase {
   dataChange: BehaviorSubject<CountryModel[]> = new BehaviorSubject<CountryModel[]>([]);

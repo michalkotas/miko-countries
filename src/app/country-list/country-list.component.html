@@ -1,36 +1,36 @@
 <div class="country-list">
   <ng-container *ngIf="!countriesDatabase.hasErrors">
-    <md-table [dataSource]="dataSource">
-      <ng-container mdColumnDef="name">
-        <md-header-cell *mdHeaderCellDef> Name </md-header-cell>
-        <md-cell *mdCellDef="let row"> {{row.name}} </md-cell>
+    <mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
       </ng-container>
-      <ng-container mdColumnDef="capital">
-        <md-header-cell *mdHeaderCellDef> Capital </md-header-cell>
-        <md-cell *mdCellDef="let row"> {{row.capital}} </md-cell>
+      <ng-container matColumnDef="capital">
+        <mat-header-cell *matHeaderCellDef> Capital </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.capital}} </mat-cell>
       </ng-container>
-      <ng-container mdColumnDef="region">
-        <md-header-cell *mdHeaderCellDef> Region </md-header-cell>
-        <md-cell *mdCellDef="let row"> {{row.region}} </md-cell>
+      <ng-container matColumnDef="region">
+        <mat-header-cell *matHeaderCellDef> Region </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.region}} </mat-cell>
       </ng-container>
-      <ng-container mdColumnDef="area">
-        <md-header-cell *mdHeaderCellDef> Area </md-header-cell>
-        <md-cell *mdCellDef="let row"> {{row.area | number}} km<sup>2</sup></md-cell>
+      <ng-container matColumnDef="area">
+        <mat-header-cell *matHeaderCellDef> Area </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.area | number}} km<sup>2</sup></mat-cell>
       </ng-container>
-      <md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>
-      <md-row [routerLink]="['/country', row.alpha3Code]"  *mdRowDef="let row; columns: displayedColumns;"></md-row>
-    </md-table>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row [routerLink]="['/country', row.alpha3Code]"  *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
   </ng-container>
   <div [hidden]="!countriesDatabase.loaded || countriesDatabase.hasErrors">
-    <md-paginator #paginator
+    <mat-paginator #paginator
                   [length]="countriesDatabase.data.length"
                   [pageIndex]="0"
                   [pageSize]="10"
                   [pageSizeOptions]="[5, 10, 25, 100]">
-    </md-paginator>
+    </mat-paginator>
   </div>
   <ng-container *ngIf="!countriesDatabase.loaded && !countriesDatabase.hasErrors">
-    <md-progress-bar mode="query"></md-progress-bar>
+    <mat-progress-bar mode="query"></mat-progress-bar>
   </ng-container>
   <ng-container *ngIf="countriesDatabase.hasErrors">
     <h1>Error while loading countries. Please try again later</h1>

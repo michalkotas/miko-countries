@@ -1,9 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { DebugElement} from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
-import {
-  MdPaginatorModule, MdTableModule, MdProgressBarModule
-} from '@angular/material';
 import { CountryListComponent } from './country-list.component';
 import {SettingsService} from '../services/settings.service';
 import {SettingsServiceStub} from '../../testing/settings-stubs';
@@ -11,6 +8,7 @@ import {CountryService} from '../services/country.service';
 import {CountryServiceStub, MOCK_COUNTRIES} from '../../testing/country-stubs';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import { By } from '@angular/platform-browser';
+import {MaterialModule} from '../material-module';
 
 describe('CountryListComponent', () => {
   let component: CountryListComponent;
@@ -18,7 +16,7 @@ describe('CountryListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [MdTableModule, RouterTestingModule, MdPaginatorModule, MdProgressBarModule, NoopAnimationsModule],
+      imports: [MaterialModule, RouterTestingModule, NoopAnimationsModule],
       declarations: [ CountryListComponent ],
       providers: [
         {provide: SettingsService, useClass: SettingsServiceStub},
@@ -47,7 +45,7 @@ describe('CountryListComponent', () => {
   });
 
   it('number of rows should match data length', () => {
-    const rows: DebugElement[] = fixture.debugElement.queryAll(By.css('md-row'));
+    const rows: DebugElement[] = fixture.debugElement.queryAll(By.css('mat-row'));
     expect(rows.length).toEqual(component.countriesDatabase.data.length);
   });
 });

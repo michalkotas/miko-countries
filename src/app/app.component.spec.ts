@@ -3,19 +3,17 @@ import {DebugElement} from '@angular/core';
 import {RouterTestingModule} from '@angular/router/testing';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {By} from '@angular/platform-browser';
-import {
-  MdSidenavModule,
-} from '@angular/material';
 import {AppComponent} from './app.component';
 import {SettingsServiceStub} from '../testing/settings-stubs';
 import {SettingsService} from './services/settings.service';
+import {MaterialModule} from './material-module';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        MdSidenavModule,
+        MaterialModule,
         NoopAnimationsModule,
       ],
       declarations: [

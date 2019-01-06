@@ -1,9 +1,6 @@
 import {async, ComponentFixture, TestBed, fakeAsync, tick} from '@angular/core/testing';
 import {ActivatedRoute} from '@angular/router';
 import {RouterTestingModule} from '@angular/router/testing';
-import {
-  MdButtonModule, MdListModule, MdChipsModule
-} from '@angular/material';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {CountryService} from '../services/country.service';
 import {CountryServiceStub, MOCK_COUNTRIES} from '../../testing/country-stubs';
@@ -11,6 +8,7 @@ import {CurrencyServiceStub, MOCK_CURRENCY} from '../../testing/currency-stubs';
 import {CountryDetailsComponent} from './country-details.component';
 import {CurrencyService} from '../services/currency.service';
 import {ActivatedRouteStub} from '../../testing/router-stubs';
+import {MaterialModule} from '../material-module';
 
 describe('CountryDetailsComponent', () => {
   let component: CountryDetailsComponent;
@@ -27,7 +25,7 @@ describe('CountryDetailsComponent', () => {
       imports: [RouterTestingModule.withRoutes([{
         path: 'country/:alpha3Code',
         component: CountryDetailsComponent
-      }]), NoopAnimationsModule, MdButtonModule, MdListModule, MdChipsModule],
+      }]), NoopAnimationsModule, MaterialModule],
       declarations: [CountryDetailsComponent],
       providers: [
         {provide: CountryService, useClass: CountryServiceStub},
@@ -64,6 +62,6 @@ describe('CountryDetailsComponent', () => {
     const country = MOCK_COUNTRIES.find(c => c.alpha3Code === 'ABW');
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('md-card-title').textContent).toContain(country.name);
+    expect(compiled.querySelector('mat-card-title').textContent).toContain(country.name);
   }));
 });

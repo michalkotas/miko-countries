@@ -1,13 +1,11 @@
 import {TestBed, async, fakeAsync, tick} from '@angular/core/testing';
 import {RouterTestingModule} from '@angular/router/testing';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-import {
-  MdSidenavModule, MdInputModule
-} from '@angular/material';
 import {SettingsComponent} from './settings.component';
 import {SettingsService} from '../services/settings.service';
 import {SettingsServiceStub} from '../../testing/settings-stubs';
 import {ReactiveFormsModule} from '@angular/forms';
+import {MaterialModule} from '../material-module';
 
 describe('SettingsComponent', () => {
   let spySetMashapeKey: jasmine.Spy;
@@ -15,9 +13,8 @@ describe('SettingsComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        MdSidenavModule,
         NoopAnimationsModule,
-        MdInputModule,
+        MaterialModule,
         ReactiveFormsModule,
       ],
       declarations: [

@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {SettingsService} from './services/settings.service';
-import {Observable} from 'rxjs/Observable';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'miko-root',

@@ -1,22 +1,22 @@
 import {NgModule} from '@angular/core';
 import {
-  MdButtonModule, MdCardModule, MdChipsModule, MdIconModule, MdInputModule, MdListModule, MdPaginatorModule,
-  MdProgressBarModule,
-  MdSidenavModule, MdTableModule, MdToolbarModule,
+  MatButtonModule, MatCardModule, MatChipsModule, MatIconModule, MatInputModule, MatListModule, MatPaginatorModule,
+  MatProgressBarModule,
+  MatSidenavModule, MatTableModule, MatToolbarModule,
 } from '@angular/material';
 @NgModule({
   exports: [
-    MdButtonModule,
-    MdCardModule,
-    MdChipsModule,
-    MdTableModule,
-    MdIconModule,
-    MdInputModule,
-    MdListModule,
-    MdPaginatorModule,
-    MdProgressBarModule,
-    MdSidenavModule,
-    MdToolbarModule,
+    MatButtonModule,
+    MatCardModule,
+    MatChipsModule,
+    MatTableModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatSidenavModule,
+    MatToolbarModule,
   ]
 })
 export class MaterialModule {}

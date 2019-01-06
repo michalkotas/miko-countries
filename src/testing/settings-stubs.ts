@@ -1,7 +1,6 @@
 import { Injectable, EventEmitter } from '@angular/core';
 
-import { Observable } from 'rxjs/Observable';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Observable ,  BehaviorSubject } from 'rxjs';
 
 export const MOCK_MASHAPE_KEY = 'MOCK_MASHAPE_KEY';
 

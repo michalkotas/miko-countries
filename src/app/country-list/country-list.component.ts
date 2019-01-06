@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {MdPaginator} from '@angular/material';
-import 'rxjs/add/observable/merge';
+import {MatPaginator} from '@angular/material';
+
 import {CountryModel} from '../models/country.model';
 import {CountryService} from '../services/country.service';
 import {CountryDataSource} from './country-data-source';
@@ -16,7 +16,7 @@ export class CountryListComponent implements OnInit {
   public dataSource: CountryDataSource | null;
   public countriesDatabase: CountryDatabase = new CountryDatabase(this.countryService);
   public displayedColumns = ['name', 'capital', 'region', 'area'];
-  @ViewChild(MdPaginator) paginator: MdPaginator;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(private countryService: CountryService) { }
 
   ngOnInit() {

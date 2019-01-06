@@ -1,86 +1,86 @@
 <div class="country-details">
   <div class="country-details__nav">
-    <button [routerLink]="['/countries'] "md-raised-button>
+    <button [routerLink]="['/countries'] "mat-raised-button>
       <i class="fa fa-table" aria-hidden="true"></i>
       All countries
     </button>
   </div>
-  <md-card class="country-details__card" *ngIf="country">
-      <md-card-title><i class="country-icon fa fa-globe" aria-hidden="true"></i>{{country.name}} {{country.name !== country.nativeName ? '(' + country.nativeName + ')' : ''}}</md-card-title>
-      <md-card-subtitle>{{country.altSpellings.join(', ')}}</md-card-subtitle>
-    <md-card-content>
+  <mat-card class="country-details__card" *ngIf="country">
+      <mat-card-title><i class="country-icon fa fa-globe" aria-hidden="true"></i>{{country.name}} {{country.name !== country.nativeName ? '(' + country.nativeName + ')' : ''}}</mat-card-title>
+      <mat-card-subtitle>{{country.altSpellings.join(', ')}}</mat-card-subtitle>
+    <mat-card-content>
       <div *ngIf="country" class="list-container">
         <div>
-          <md-list>
-            <md-list-item>
-              <h3 md-line>{{country.capital}}</h3>
-              <p md-line class="secondary-text">Capital</p>
-            </md-list-item>
-            <md-list-item>
-              <h3 md-line>{{country.region}}</h3>
-              <p md-line class="secondary-text">Region</p>
-            </md-list-item>
-            <md-list-item>
-              <h3 md-line>{{country.subregion}}</h3>
-              <p md-line class="secondary-text">Subregion</p>
-            </md-list-item>
-            <md-list-item>
-              <h3 md-line>{{country.population | number}}</h3>
-              <p md-line class="secondary-text">Population</p>
-            </md-list-item>
-            <md-list-item>
-              <h3 md-line>{{country.area | number}} km<sup>2</sup></h3>
-              <p md-line class="secondary-text">Area </p>
-            </md-list-item>
-          </md-list>
+          <mat-list>
+            <mat-list-item>
+              <h3 mat-line>{{country.capital}}</h3>
+              <p mat-line class="secondary-text">Capital</p>
+            </mat-list-item>
+            <mat-list-item>
+              <h3 mat-line>{{country.region}}</h3>
+              <p mat-line class="secondary-text">Region</p>
+            </mat-list-item>
+            <mat-list-item>
+              <h3 mat-line>{{country.subregion}}</h3>
+              <p mat-line class="secondary-text">Subregion</p>
+            </mat-list-item>
+            <mat-list-item>
+              <h3 mat-line>{{country.population | number}}</h3>
+              <p mat-line class="secondary-text">Population</p>
+            </mat-list-item>
+            <mat-list-item>
+              <h3 mat-line>{{country.area | number}} km<sup>2</sup></h3>
+              <p mat-line class="secondary-text">Area </p>
+            </mat-list-item>
+          </mat-list>
         </div>
         <div>
-          <md-list>
-            <md-list-item>
-              <h3 md-line>{{country.languages.join(', ')}}</h3>
-              <p md-line class="secondary-text">Languages</p>
-            </md-list-item>
-            <md-list-item>
-              <h3 md-line>{{country.timezones.join(', ')}}</h3>
-              <p md-line class="secondary-text">Timezones</p>
-            </md-list-item>
-            <md-list-item>
-              <h3 md-line>{{country.callingCodes.join(', ')}}</h3>
-              <p md-line class="secondary-text">Calling Codes</p>
-            </md-list-item>
-            <md-list-item>
-              <h3 md-line>{{country.topLevelDomain.join(', ')}}</h3>
-              <p md-line class="secondary-text">Top level domain</p>
-            </md-list-item>
-            <md-list-item>
-              <h3 md-line>{{country.alpha2Code}}, {{country.alpha3Code}}, {{country.numericCode}}</h3>
-              <p md-line class="secondary-text">ISO 3166-1 codes</p>
-            </md-list-item>
-          </md-list>
+          <mat-list>
+            <mat-list-item>
+              <h3 mat-line>{{country.languages.join(', ')}}</h3>
+              <p mat-line class="secondary-text">Languages</p>
+            </mat-list-item>
+            <mat-list-item>
+              <h3 mat-line>{{country.timezones.join(', ')}}</h3>
+              <p mat-line class="secondary-text">Timezones</p>
+            </mat-list-item>
+            <mat-list-item>
+              <h3 mat-line>{{country.callingCodes.join(', ')}}</h3>
+              <p mat-line class="secondary-text">Calling Codes</p>
+            </mat-list-item>
+            <mat-list-item>
+              <h3 mat-line>{{country.topLevelDomain.join(', ')}}</h3>
+              <p mat-line class="secondary-text">Top level domain</p>
+            </mat-list-item>
+            <mat-list-item>
+              <h3 mat-line>{{country.alpha2Code}}, {{country.alpha3Code}}, {{country.numericCode}}</h3>
+              <p mat-line class="secondary-text">ISO 3166-1 codes</p>
+            </mat-list-item>
+          </mat-list>
         </div>
         <div>
-          <md-list>
-            <md-list-item *ngFor="let currency of country.currencies">
-              <h3 *ngIf="!convertedCurrency[currency]" md-line><i class="fa fa-spinner fa-spin" aria-hidden="true"></i></h3>
-              <h3 *ngIf="convertedCurrency[currency]" md-line>{{convertedCurrency[currency].error ? 'Rate not available' : convertedCurrency[currency].amount | currency:'PLN'}}</h3>
-              <p md-line class="secondary-text">{{currency}} to PLN</p>
-            </md-list-item>
-          </md-list>
+          <mat-list>
+            <mat-list-item *ngFor="let currency of country.currencies">
+              <h3 *ngIf="!convertedCurrency[currency]" mat-line><i class="fa fa-spinner fa-spin" aria-hidden="true"></i></h3>
+              <h3 *ngIf="convertedCurrency[currency]" mat-line>{{convertedCurrency[currency].error ? 'Rate not available' : convertedCurrency[currency].amount | currency:'PLN'}}</h3>
+              <p mat-line class="secondary-text">{{currency}} to PLN</p>
+            </mat-list-item>
+          </mat-list>
         </div>
       </div>
-    </md-card-content>
-  </md-card>
-  <md-card class="country-details__card" *ngIf="country?.borders.length">
-    <md-card-title>{{country.name}} borders</md-card-title>
-    <md-card-content>
-      <md-chip-list >
-        <md-chip *ngFor="let border of country.borders"
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="country-details__card" *ngIf="country?.borders.length">
+    <mat-card-title>{{country.name}} borders</mat-card-title>
+    <mat-card-content>
+      <mat-chip-list >
+        <mat-chip *ngFor="let border of country.borders"
                  selected="false"
                  [routerLink]="['/country', border]"
                  >
           {{border}}
-        </md-chip>
-      </md-chip-list>
-    </md-card-content>
-  </md-card>
+        </mat-chip>
+      </mat-chip-list>
+    </mat-card-content>
+  </mat-card>
 </div>

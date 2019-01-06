@@ -1,21 +1,21 @@
 <div class="settings">
-  <md-card class="settings__card">
-    <md-card-title>Settings</md-card-title>
+  <mat-card class="settings__card">
+    <mat-card-title>Settings</mat-card-title>
     <form role="form" [formGroup]="settingsForm" (ngSubmit)="submit(settingsForm)" class="miko-form">
-      <md-card-content>
-        <md-input-container>
-          <input mdInput formControlName="mashapeKey" placeholder="Mashape Key">
-          <md-error *ngIf="settingsForm.get('mashapeKey').hasError('required')">
+      <mat-card-content>
+        <mat-form-field>
+          <input matInput formControlName="mashapeKey" placeholder="Mashape Key">
+          <mat-error *ngIf="settingsForm.get('mashapeKey').hasError('required')">
             Mashape Key is required
-          </md-error>
-        </md-input-container>
-      </md-card-content>
-      <md-card-actions align="end">
-        <button md-raised-button md-button
+          </mat-error>
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button mat-raised-button mat-button
                 type="submit"
                 color="primary">Submit
         </button>
-      </md-card-actions>
+      </mat-card-actions>
     </form>
-  </md-card>
+  </mat-card>
 </div>

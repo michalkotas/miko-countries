@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 
-import {Observable} from 'rxjs/Observable';
+import {Observable, of} from 'rxjs';
 import {CountryModel} from '../app/models/country.model';
 
 export const MOCK_COUNTRIES: CountryModel[] = [
@@ -219,13 +219,13 @@ export const MOCK_COUNTRIES: CountryModel[] = [
 @Injectable()
 export class CountryServiceStub {
   public getCountries(noCache: boolean = false): Observable<CountryModel[]> {
-    return Observable.of(MOCK_COUNTRIES.slice());
+    return of(MOCK_COUNTRIES.slice());
   }
 
   public getCountryByCode(alpha3Code: string, noCache: boolean = false): Observable<CountryModel> {
     const country: CountryModel = MOCK_COUNTRIES.slice().find((c: CountryModel) => c.alpha3Code === alpha3Code);
     if (country) {
-      return Observable.of(country);
+      return of(country);
     }
   }
 }
