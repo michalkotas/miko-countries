@@ -19,9 +19,9 @@ export class CurrencyService {
     search.set('to', to.toString());
     search.set('from', from.toString());
     search.set('from_amount', from_amount.toString());
-    headers.append('X-Mashape-Key', this.settingsService.getMashapeKey());
+    headers.append('X-RapidAPI-Key', this.settingsService.getMashapeKey());
 
-    return this.http.get(`https://currencyconverter.p.mashape.com`, {search, headers}).pipe(map(res => {
+    return this.http.get(`https://currencyconverter.p.rapidapi.com`, {search, headers}).pipe(map(res => {
       return new CurrencyConvertModel(res.json());
     }));
   }

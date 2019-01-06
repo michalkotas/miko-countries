@@ -3,7 +3,7 @@ import {BehaviorSubject, Observable} from 'rxjs';
 
 @Injectable()
 export class SettingsService {
-  private mashapeKey: BehaviorSubject<string> = new BehaviorSubject<string>('fD73ZH1OTcmshMusCaJiCQACUTPXp1IfFdrjsnSbDpVKxuMZMD');
+  private mashapeKey: BehaviorSubject<string> = new BehaviorSubject<string>('ioqz3WNS9Bmsh0j7xffM9NZfRQcEp1pCgSLjsnuvr5M7nAAH4E');
 
   constructor() {
   }
