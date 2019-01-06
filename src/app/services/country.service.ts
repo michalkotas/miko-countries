@@ -1,18 +1,15 @@
 import {of as observableOf, Observable} from 'rxjs';
-import {map, tap} from 'rxjs/operators';
+import {tap} from 'rxjs/operators';
 import {Injectable} from '@angular/core';
-import {Http, Headers} from '@angular/http';
-
-
+import {HttpClient} from '@angular/common/http';
 import {CountryModel} from '../models/country.model';
-import {SettingsService} from './settings.service';
 
 @Injectable()
 export class CountryService {
   private countries: CountryModel[] = [];
   private reloadRequired = true;
 
-  constructor(private http: Http, private settingsService: SettingsService) {
+  constructor(private httpClient: HttpClient) {
   }
 
   public getCountries(noCache: boolean = false): Observable<CountryModel[]> {
@@ -20,10 +17,7 @@ export class CountryService {
       return observableOf(this.countries);
     }
 
-    const headers = new Headers();
-    headers.append('X-RapidAPI-Key', this.settingsService.getMashapeKey());
-    return this.http.get(`https://restcountries-v1.p.rapidapi.com/all`, {headers}).pipe(
-      map(res => res.json().map(country => new CountryModel(country))),
+    return this.httpClient.get<CountryModel[]>(`https://restcountries-v1.p.rapidapi.com/all`).pipe(
       tap(countries => {
         this.countries = countries;
         this.reloadRequired = false;
@@ -38,10 +32,7 @@ export class CountryService {
       }
     }
 
-    const headers = new Headers();
-    headers.append('X-RapidAPI-Key', this.settingsService.getMashapeKey());
-    return this.http.get(`https://restcountries-v1.p.rapidapi.com/alpha/${alpha3Code}`, {headers}).pipe(
-      map(res => new CountryModel(res.json())),
+    return this.httpClient.get<CountryModel>(`https://restcountries-v1.p.rapidapi.com/alpha/${alpha3Code}`).pipe(
       tap(country => {
         this.countries.push(country);
         this.reloadRequired = true;

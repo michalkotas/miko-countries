@@ -14,7 +14,7 @@ describe('SettingsService', () => {
 
   describe('service methods', () => {
     it('getMashapeKey should return initial value', inject([SettingsService], (service: SettingsService) => {
-      expect(service.getMashapeKey()).toEqual('fD73ZH1OTcmshMusCaJiCQACUTPXp1IfFdrjsnSbDpVKxuMZMD');
+      expect(service.getMashapeKey()).toEqual('ioqz3WNS9Bmsh0j7xffM9NZfRQcEp1pCgSLjsnuvr5M7nAAH4E');
     }));
 
     it('getMashapeKeyAsync should return initial value', async(inject([SettingsService], (service: SettingsService) => {

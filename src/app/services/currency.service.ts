@@ -1,29 +1,20 @@
-
-import {map} from 'rxjs/operators';
 import {Injectable} from '@angular/core';
-import {Http, Headers, URLSearchParams} from '@angular/http';
 import {Observable} from 'rxjs';
-
-
-import {SettingsService} from './settings.service';
 import {CurrencyConvertModel} from '../models/currency-convert.model';
+import {HttpClient, HttpParams} from '@angular/common/http';
 
 @Injectable()
 export class CurrencyService {
-  constructor(private http: Http, private settingsService: SettingsService) {
+  constructor(private httpClient: HttpClient) {
   }
 
   public getCurrencyRate(to: string, from: string = 'PLN', from_amount: number = 1): Observable<CurrencyConvertModel> {
-    const headers = new Headers();
-    const search: URLSearchParams = new URLSearchParams();
-    search.set('to', to.toString());
-    search.set('from', from.toString());
-    search.set('from_amount', from_amount.toString());
-    headers.append('X-RapidAPI-Key', this.settingsService.getMashapeKey());
+    let params = new HttpParams();
+    params = params.append('to', to.toString());
+    params = params.append('from', from.toString());
+    params = params.append('from_amount', from_amount.toString());
 
-    return this.http.get(`https://currencyconverter.p.rapidapi.com`, {search, headers}).pipe(map(res => {
-      return new CurrencyConvertModel(res.json());
-    }));
+    return this.httpClient.get<CurrencyConvertModel>(`https://currencyconverter.p.rapidapi.com`, {params});
   }
 
 }
