@@ -1,0 +1,41 @@
+.miko-app {
+  .mat-sidenav {
+    min-width: 15vw;
+    box-shadow: 6px 0 6px rgba(0,0,0,.1);
+
+    .mat-nav-list {
+      border-bottom: 1px solid #dbdbdb;
+
+      .fa {
+        padding-right: 5px;
+      }
+
+      .active {
+        background-color: rgba(199, 199, 199, 0.3);
+      }
+    }
+    .mat-button {
+      width: 100%;
+      position: relative;
+      bottom: 0;
+      margin: 24px 0;
+    }
+  }
+  .content {
+    padding: 32px;
+    box-sizing: border-box;
+  }
+
+  .mat-toolbar {
+    .mat-icon {
+      cursor: pointer;
+    }
+
+    .toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+  }
+}

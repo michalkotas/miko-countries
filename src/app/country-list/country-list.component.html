@@ -1,0 +1,38 @@
+<div class="country-list">
+  <ng-container *ngIf="!countriesDatabase.hasErrors">
+    <md-table [dataSource]="dataSource">
+      <ng-container mdColumnDef="name">
+        <md-header-cell *mdHeaderCellDef> Name </md-header-cell>
+        <md-cell *mdCellDef="let row"> {{row.name}} </md-cell>
+      </ng-container>
+      <ng-container mdColumnDef="capital">
+        <md-header-cell *mdHeaderCellDef> Capital </md-header-cell>
+        <md-cell *mdCellDef="let row"> {{row.capital}} </md-cell>
+      </ng-container>
+      <ng-container mdColumnDef="region">
+        <md-header-cell *mdHeaderCellDef> Region </md-header-cell>
+        <md-cell *mdCellDef="let row"> {{row.region}} </md-cell>
+      </ng-container>
+      <ng-container mdColumnDef="area">
+        <md-header-cell *mdHeaderCellDef> Area </md-header-cell>
+        <md-cell *mdCellDef="let row"> {{row.area | number}} km<sup>2</sup></md-cell>
+      </ng-container>
+      <md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>
+      <md-row [routerLink]="['/country', row.alpha3Code]"  *mdRowDef="let row; columns: displayedColumns;"></md-row>
+    </md-table>
+  </ng-container>
+  <div [hidden]="!countriesDatabase.loaded || countriesDatabase.hasErrors">
+    <md-paginator #paginator
+                  [length]="countriesDatabase.data.length"
+                  [pageIndex]="0"
+                  [pageSize]="10"
+                  [pageSizeOptions]="[5, 10, 25, 100]">
+    </md-paginator>
+  </div>
+  <ng-container *ngIf="!countriesDatabase.loaded && !countriesDatabase.hasErrors">
+    <md-progress-bar mode="query"></md-progress-bar>
+  </ng-container>
+  <ng-container *ngIf="countriesDatabase.hasErrors">
+    <h1>Error while loading countries. Please try again later</h1>
+  </ng-container>
+</div>

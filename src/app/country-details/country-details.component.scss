@@ -1,0 +1,31 @@
+.country-details {
+  &__nav {
+    margin-bottom: 16px;
+  }
+  &__card {
+    margin: 0 16px 16px 0;
+    max-width: 600px;
+    min-width: 280px;
+    .country-icon {
+      padding-right: 5px;
+    }
+
+    .mat-chip {
+      cursor: pointer;
+      &:hover {
+        background-color: rgba(199, 199, 199, 0.3);
+      }
+    }
+    .list-container {
+      display: flex;
+      flex-flow: row wrap;
+      .secondary-text {
+        color: rgba(0, 0, 0, 0.54);
+      }
+      .mat-line {
+        max-width: 250px;
+      }
+    }
+  }
+
+}
